@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 const logger = require("./utils/logger");
 const { mongoURI, port } = require("./config/config");
 const courseRoutes = require("./routes/userRoutes");
@@ -12,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hi, Welcome to the Tarrot Guide!");
+  res.sendFile(path.join(__dirname, "/utils/home.html"));
 });
 // Routes
 app.use("/api", courseRoutes);
