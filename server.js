@@ -11,7 +11,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.get("/", (req, res) => {
+  res.send("Hi, Welcome to the Tarrot Guide!");
+});
 // Routes
 app.use("/api", courseRoutes);
 
